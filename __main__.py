@@ -8,20 +8,25 @@ Created on Mon Jul  2 21:18:57 2018
 #from numpy import *
 #from Digit_recog import *
 #from TestData import createDataSet
+from matplotlib import pyplot as plt
+
+from Digit_recog import img2vec
+from Feature_scaling import Norm_feature
 from KNN_algr import classify_KNN
-from TestData import createDataSet
+from Parse_data import file_parse_matrix
+from TestData import createDataSet, Test_accuray
 
 if __name__ == '__main__':
     # 测试数据
     group, labels = createDataSet()
-    classify_KNN([0,0], group, labels, 3)
+    classify_KNN([0, 0], group, labels, 3)
     
     DataMat, LabelMat = file_parse_matrix('datingTestSet2.txt')
-    print(DataMat,shape(DataMat),LabelMat)
+   #print(DataMat,shape(DataMat),LabelMat)
     
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.scatter(DataMat[:,1],DataMat[:,2])
+    ax.scatter(DataMat[:, 1], DataMat[:, 2])
     plt.show()
     
     dating_mat, label_mat = file_parse_matrix('datingTestSet2.txt')
